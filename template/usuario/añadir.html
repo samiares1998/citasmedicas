@@ -1,0 +1,70 @@
+{% extends 'usuario/home.html' %}
+
+{% block titulo %}Creacion de Autores{% endblock titulo %}
+
+
+{% block body%}
+
+<section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">Crear Cita</h2>
+      <hr class="divider my-4">
+     
+<form action="{% url 'registroCitas' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+
+  <div class="form-group">
+
+      <label for="">Nombre paciente : </label> 
+      <input type="text" name="name" class="form-control" id="name" placeholder="digite Nombre Paciente"   required>
+
+  </div>
+
+  <div class="form-group">
+    <label for="">Correo : </label>
+    <input type="email" name="correo" class="form-control" id="email" placeholder="Digite Su Email"  required>
+    
+  </div>
+
+
+  <div class="form-group">
+
+    <label for="exampleFormControlTextarea1">Descripcion Consulta</label>
+    <textarea class="form-control" name="descripcion"  id="exampleFormControlTextarea1" rows="3" required></textarea>
+    
+  </div>
+
+
+
+
+
+  <div class="form-group col-md-4">
+      <label for="inputState">Especialista</label>
+      <select id="inputState" name="especialista" class="form-control" required>
+        <option selected>oftalmológico</option>
+        <option>endocrino</option>
+        <option>pediatra</option>
+      </select>
+    </div>
+
+
+ <div class="form-group">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" name="imagen" id="imagen" class="form-control-file" id="exampleFormControlFile1" >
+  </div>
+
+
+
+<input type="submit" class="btn btn-primary" name="submit">
+
+  
+
+</form>
+
+
+
+    </div>
+  </section>
+
+  {% endblock body%}
